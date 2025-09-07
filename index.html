@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة التمويل لمشروع DR5 - تصميم طبي وعقاري فاخر</title>
+    <!-- تضمين مكتبة Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- خطوط عربية احترافية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- مكتبة الرسوم البيانية Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* ==================== بداية الأنماط المخصصة (Custom CSS) ==================== */
+        
+        /* تعريف متغيرات الألوان لتسهيل التعديل */
+        :root {
+            --color-primary: #1abc9c;    /* الأخضر الطبي - لون الهوية */
+            --color-secondary: #34495e;   /* الأزرق الداكن - للقوائم والعناصر */
+            --color-accent-blue: #3498db;  /* أزرق الإضاءة */
+            --color-accent-gold: #f1c40f;   /* ذهبي - لمسة فاخرة */
+            --color-bg-light: #ecf0f1;     /* خلفية فاتحة */
+            --color-bg-dark: #2c3e50;      /* خلفية داكنة */
+            --color-text-dark: #34495e;
+            --color-text-light: #ecf0f1;
+        }
+
+        /* ضبط الخط الافتراضي واستخدام نظام الألوان */
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--color-text-dark);
+            background-color: var(--color-bg-light);
+            scroll-behavior: smooth; /* تفعيل التمرير السلس */
+            overflow-x: hidden; /* منع التمرير الأفقي */
+        }
+
+        /* أنماط القسم الرئيسي (Section) */
+        .section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent-blue));
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+
+        /* ==================== أنماط شريط الملاحة (Navigation) ==================== */
+
+        .nav-fixed {
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-scrolled {
+            background-color: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ==================== أنماط قسم الرأس (Hero Section) ==================== */
+
+        .hero-section {
+            height: 85vh;
+            position: relative;
+            background: var(--color-bg-dark);
+            color: var(--color-text-light);
+            overflow: hidden;
+            border-bottom-right-radius: 80px;
+            border-bottom-left-radius: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, var(--color-secondary), var(--color-accent-blue), var(--color-primary));
+            background-size: 400% 400%;
+            animation: bg-gradient-animation 15s ease-in-out infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes bg-gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ==================== أنماط الرسوم البيانية (Charts) ==================== */
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            animation: fade-in-up 1s ease-out forwards;
+        }
+
+        /* ==================== أنماط البطاقات (Cards) ==================== */
+        
+        .smm-card {
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        
+        .smm-card.animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .smm-card:hover {
+            transform: translateY(-15px) scale(1.05) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .smm-card-icon {
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .smm-card:hover .smm-card-icon {
+            transform: rotateY(180deg) scale(1.1);
+        }
+
+        /* ==================== أنماط الأعداد المتحركة (Counters) ==================== */
+
+        .counter-box {
+            background: linear-gradient(45deg, var(--color-secondary), var(--color-bg-dark));
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        
+        .counter-box.animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ==================== أنماط النوافذ المنبثقة (Modal) ==================== */
+
+        .popup-container {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .popup-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            transform: scale(0.7);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .popup-container.active .popup-content {
+            transform: scale(1);
+        }
+
+        /* ==================== أنماط الرسوم المتحركة العامة (General Animations) ==================== */
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== نهاية الأنماط المخصصة (Custom CSS) ==================== */
+
+    </style>
+</head>
+<body>
+
+    <!-- ==================== شريط الملاحة (Navigation Bar) ==================== -->
+    <nav id="navbar" class="nav-fixed fixed top-0 w-full z-50 transition-all duration-500 py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-extrabold text-white transition-colors duration-500">
+                DR5 <span class="font-normal text-xl opacity-80">الخطة المالية</span>
+            </a>
+            <ul class="flex space-x-8 space-x-reverse text-lg">
+                <li><a href="#overview" class="nav-link text-white hover:text-primary-color transition-colors duration-300">نظرة عامة</a></li>
+                <li><a href="#smm-strategy" class="nav-link text-white hover:text-primary-color transition-colors duration-300">استراتيجية SMM</a></li>
+                <li><a href="#sem-strategy" class="nav-link text-white hover:text-primary-color transition-colors duration-300">استراتيجية SEM</a></li>
+                <li><a href="#kpis" class="nav-link text-white hover:text-primary-color transition-colors duration-300">مؤشرات الأداء</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== قسم الرأس (Hero Section) ==================== -->
+    <header id="hero" class="hero-section">
+        <div class="hero-content text-center">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 animate-on-scroll">
+                خطة التمويل لمشروع <span class="text-primary-color">DR5</span>
+            </h1>
+            <p class="text-xl md:text-2xl opacity-80 animate-on-scroll" style="transition-delay: 0.3s;">
+                استثمار مستقبلي يجمع بين الطب والعقارات
+            </p>
+            <a href="#overview" class="mt-8 inline-block px-8 py-4 bg-primary-color text-white rounded-full font-bold text-lg shadow-xl hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105 animate-on-scroll" style="transition-delay: 0.6s;">
+                اكتشف الخطة
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ==================== نظرة عامة على الميزانية (Budget Overview) ==================== -->
+        <section id="overview" class="section bg-white text-center">
+            <div class="container mx-auto px-4">
+                <div class="section-header animate-on-scroll">
+                    <h2>نظرة عامة على الميزانية</h2>
+                    <p class="text-xl text-gray-600 mt-2">توزيع إجمالي الميزانية لسبتمبر 2025</p>
+                </div>
+                <div class="chart-container mt-16 animate-on-scroll">
+                    <canvas id="budget-chart"></canvas>
+                    <div class="flex justify-center mt-8 gap-12 font-bold text-lg">
+                        <div class="flex items-center gap-2 text-primary-color">
+                            <div class="w-6 h-6 rounded-md bg-primary-color"></div>
+                            <span>SMM (80%)</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-accent-gold">
+                            <div class="w-6 h-6 rounded-md bg-accent-gold"></div>
+                            <span>SEM (20%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== استراتيجية SMM (SMM Strategy) ==================== -->
+        <section id="smm-strategy" class="section bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="section-header text-center animate-on-scroll">
+                    <h2 class="text-secondary-color">أولاً: استراتيجية التسويق عبر وسائل التواصل الاجتماعي (SMM)</h2>
+                    <p class="text-xl text-gray-600 mt-2">الميزانية: <span class="font-bold text-primary-color">200,000</span> جنيه مصري</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
+                    <!-- بطاقة توليد العملاء (Leads Card) -->
+                    <div class="smm-card bg-white rounded-3xl p-10 shadow-lg cursor-pointer hover:shadow-2xl">
+                        <div class="smm-card-icon text-5xl text-primary-color mb-5 transition-transform duration-500">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary-color mb-3">توليد العملاء المحتملين</h3>
+                        <p class="text-lg text-gray-500 mb-6">ميزانية: 166,000 ج.م <span class="font-bold">(83%)</span></p>
+                        <ul class="list-none text-right space-y-3 text-gray-700">
+                            <li class="relative pr-8">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 text-accent-blue text-2xl font-bold">&bull;</span>
+                                <strong>حملات Lead Forms:</strong> 100,000 ج.م (60%)
+                            </li>
+                            <li class="relative pr-8">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 text-accent-blue text-2xl font-bold">&bull;</span>
+                                <strong>حملات WhatsApp Messages:</strong> 50,000 ج.م (30%)
+                            </li>
+                            <li class="relative pr-8">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 text-accent-blue text-2xl font-bold">&bull;</span>
+                                <strong>إعادة الاستهداف:</strong> 16,000 ج.م (10%)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- بطاقة التوعية (Awareness Card) -->
+                    <div class="smm-card bg-white rounded-3xl p-10 shadow-lg cursor-pointer hover:shadow-2xl">
+                        <div class="smm-card-icon text-5xl text-primary-color mb-5 transition-transform duration-500">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary-color mb-3">حملات التوعية</h3>
+                        <p class="text-lg text-gray-500 mb-6">ميزانية: 20,000 ج.م <span class="font-bold">(10%)</span></p>
+                        <ul class="list-none text-right space-y-3 text-gray-700">
+                            <li class="relative pr-8">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 text-accent-blue text-2xl font-bold">&bull;</span>
+                                <strong>الهدف:</strong> تعريف سريع بالمشروع وميزاته.
+                            </li>
+                            <li class="relative pr-8">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 text-accent-blue text-2xl font-bold">&bull;</span>
+                                <strong>الجمهور:</strong> المستثمرون والمهنيون في القاهرة الكبرى.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- بطاقة التفاعل (Engagement Card) -->
+                    <div class="smm-card bg-white rounded-3xl p-10 shadow-lg cursor-pointer hover:shadow-2xl">
+                        <div class="smm-card-icon text-5xl text-primary-color mb-5 transition-transform duration-500">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary-color mb-3">حملات التفاعل</h3>
+                        <p class="text-lg text-gray-500 mb-6">ميزانية: 14,000 ج.م <span class="font-bold">(7%)</span></p>
+                        <ul class="list-none text-right space-y-3 text-gray-700">
+                            <li class="relative pr-8">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 text-accent-blue text-2xl font-bold">&bull;</span>
+                                <strong>الهدف:</strong> بناء الثقة عبر المحتوى التفاعلي.
+                            </li>
+                            <li class="relative pr-8">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 text-accent-blue text-2xl font-bold">&bull;</span>
+                                <strong>المحتوى:</strong> صور 3D، مخططات، ومقاطع فيديو احترافية.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== استراتيجية SEM (SEM Strategy) ==================== -->
+        <section id="sem-strategy" class="section bg-secondary-color text-white">
+            <div class="container mx-auto px-4">
+                <div class="section-header text-center animate-on-scroll">
+                    <h2 class="text-white">ثانياً: التسويق عبر محركات البحث (SEM)</h2>
+                    <p class="text-xl text-gray-400 mt-2">الميزانية: <span class="font-bold text-accent-gold">50,000</span> جنيه مصري</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mt-16 items-center">
+                    <div class="chart-container animate-on-scroll">
+                        <canvas id="sem-chart"></canvas>
+                    </div>
+                    <div class="sem-details animate-on-scroll">
+                        <h3 class="text-4xl font-bold text-accent-gold mb-6">تفاصيل إعلانات Google</h3>
+                        <p class="text-lg mb-4 text-gray-300 leading-loose">
+                            تركز هذه الاستراتيجية على استهداف العملاء الذين يبحثون بنشاط عن فرص استثمارية في القطاع الطبي والعقاري.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="p-6 bg-gray-700 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2 text-primary-color">Google Search Ads</h4>
+                                <p class="text-lg text-gray-200">
+                                    <i class="fas fa-search text-accent-gold ml-2"></i> استهداف كلمات مفتاحية مثل "عيادات للبيع في التجمع الخامس" و "وحدات طبية بالتقسيط".
+                                </p>
+                            </div>
+                            <div class="p-6 bg-gray-700 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2 text-primary-color">YouTube / Display</h4>
+                                <p class="text-lg text-gray-200">
+                                    <i class="fab fa-youtube text-red-500 ml-2"></i> إعلانات مرئية جذابة لزيادة الوعي بالمشروع.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== مؤشرات الأداء (KPIs) ==================== -->
+        <section id="kpis" class="section bg-white text-center">
+            <div class="container mx-auto px-4">
+                <div class="section-header animate-on-scroll">
+                    <h2>مؤشرات الأداء الرئيسية (KPIs)</h2>
+                    <p class="text-xl text-gray-600 mt-2">لضمان تحقيق أقصى عائد على الاستثمار</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+                    <!-- KPI Card 1 -->
+                    <div class="counter-box bg-primary-color text-white p-8 rounded-3xl shadow-lg">
+                        <div class="text-6xl font-bold mb-2" data-target="80000">0</div>
+                        <p class="text-lg font-normal opacity-90">ميزانية الأسبوع الأول</p>
+                    </div>
+                    <!-- KPI Card 2 -->
+                    <div class="counter-box bg-secondary-color text-white p-8 rounded-3xl shadow-lg">
+                        <div class="text-6xl font-bold mb-2" data-target="200000">0</div>
+                        <p class="text-lg font-normal opacity-90">إجمالي ميزانية SMM</p>
+                    </div>
+                    <!-- KPI Card 3 -->
+                    <div class="counter-box bg-accent-blue text-white p-8 rounded-3xl shadow-lg">
+                        <div class="text-6xl font-bold mb-2" data-target="2.5">0</div>
+                        <p class="text-lg font-normal opacity-90">معدل النقر (CTR) %</p>
+                    </div>
+                    <!-- KPI Card 4 -->
+                    <div class="counter-box bg-accent-gold text-white p-8 rounded-3xl shadow-lg">
+                        <div class="text-6xl font-bold mb-2" data-target="800">0</div>
+                        <p class="text-lg font-normal opacity-90">تكلفة العميل المحتمل (CPL)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- ==================== نافذة منبثقة تفاعلية (Interactive Modal) ==================== -->
+    <div id="popup-container" class="popup-container fixed inset-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-[1000]">
+        <div class="popup-content bg-white p-10 rounded-3xl shadow-2xl max-w-xl w-11/12 text-center relative">
+            <button id="close-popup" class="absolute top-4 left-4 text-gray-500 hover:text-secondary-color transition-colors duration-300 text-3xl">&times;</button>
+            <div id="popup-text" class="text-gray-800 leading-loose"></div>
+        </div>
+    </div>
+
+    <!-- ==================== التذييل (Footer) ==================== -->
+    <footer class="bg-secondary-color text-gray-400 text-center py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 DR5 Project. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    
+    <!-- ==================== بداية كود JavaScript ==================== -->
+    <script>
+        // دالة للمراقبة والانيميشن على التمرير
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    // إيقاف المراقبة بعد ظهور العنصر لمنع التكرار
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }); // يظهر العنصر عند ظهور 10% منه
+
+        // دالة لإعداد مراقبة جميع العناصر التي تحمل فئة 'animate-on-scroll'
+        function setupScrollAnimations() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // دالة لإنشاء عداد رقمي متحرك
+        function startCounter(element, target) {
+            let start = 0;
+            const duration = 2000; // 2 ثانية
+            const increment = target / (duration / 10);
+            
+            const interval = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    clearInterval(interval);
+                    start = target;
+                }
+                // تنسيق الأرقام مع فواصل الألوف أو العلامات العشرية
+                if (target % 1 !== 0) {
+                    element.textContent = start.toFixed(1);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 10);
+        }
+
+        // دالة لمراقبة عناصر العدادات وتشغيلها عند الظهور
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    const target = parseFloat(entry.target.getAttribute('data-target'));
+                    startCounter(entry.target, target);
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 }); // تشغيل العداد عند ظهور 50% من العنصر
+
+        // إعداد مراقبة لكل عنصر عداد
+        function setupCounters() {
+            document.querySelectorAll('.counter-box div').forEach(counter => {
+                counterObserver.observe(counter);
+            });
+        }
+
+        // دالة لتشغيل أنيميشن البطاقات عند التمرير
+        function setupCardAnimations() {
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, index * 200); // تأخير بسيط لكل بطاقة
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            const cards = document.querySelectorAll('.smm-card');
+            cards.forEach(card => cardObserver.observe(card));
+            
+            const counterCards = document.querySelectorAll('.counter-box');
+            counterCards.forEach((card, index) => {
+                cardObserver.observe(card);
+            });
+        }
+
+        // دالة لإعداد الرسوم البيانية
+        function setupCharts() {
+            // بيانات الرسم البياني الدائري للميزانية الإجمالية
+            const budgetData = {
+                labels: ['SMM', 'SEM'],
+                datasets: [{
+                    label: 'توزيع الميزانية',
+                    data: [80, 20],
+                    backgroundColor: ['var(--color-primary)', 'var(--color-accent-gold)'],
+                    borderColor: 'transparent',
+                    hoverOffset: 20
+                }]
+            };
+            const budgetConfig = {
+                type: 'doughnut',
+                data: budgetData,
+                options: {
+                    responsive: true,
+                    cutout: '80%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.label}: ${context.raw}%`
+                            }
+                        }
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                }
+            };
+            const budgetChartCtx = document.getElementById('budget-chart').getContext('2d');
+            new Chart(budgetChartCtx, budgetConfig);
+
+            // بيانات الرسم البياني الشريطي لـ SEM
+            const semData = {
+                labels: ['Google Search Ads', 'YouTube / Display'],
+                datasets: [{
+                    label: 'ميزانية SEM',
+                    data: [70, 30],
+                    backgroundColor: ['var(--color-accent-gold)', 'var(--color-accent-blue)'],
+                    borderColor: 'transparent',
+                    barThickness: 50
+                }]
+            };
+            const semConfig = {
+                type: 'bar',
+                data: semData,
+                options: {
+                    indexAxis: 'y', // عرض الشرائط أفقياً
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: 'var(--color-text-light)' }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: 'var(--color-text-light)', font: { size: 14 } }
+                        }
+                    },
+                    animation: {
+                        x: { from: 0 }
+                    }
+                }
+            };
+            const semChartCtx = document.getElementById('sem-chart').getContext('2d');
+            new Chart(semChartCtx, semConfig);
+        }
+
+        // دالة لإدارة شريط الملاحة (Navigation Bar)
+        function setupNavbar() {
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            const navHeight = navbar.offsetHeight;
+
+            // تغيير نمط الشريط عند التمرير
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > navHeight) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+
+                // تفعيل رابط القسم الحالي في شريط الملاحة
+                let currentSection = null;
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // تفعيل التمرير السلس عند الضغط على الروابط
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    window.scrollTo({
+                        top: targetSection.offsetTop - navHeight,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+
+        // دالة لإدارة النافذة المنبثقة التفاعلية
+        function setupModal() {
+            const popupContainer = document.getElementById('popup-container');
+            const popupText = document.getElementById('popup-text');
+            const closeBtn = document.getElementById('close-popup');
+
+            document.querySelectorAll('.smm-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.querySelector('h3').textContent;
+                    const content = card.querySelector('ul').outerHTML;
+                    popupText.innerHTML = `
+                        <h3 class="text-3xl font-bold mb-4 text-primary-color">${title}</h3>
+                        <p class="text-lg mb-4 text-gray-600">تفاصيل الخطة:</p>
+                        <div class="text-right leading-loose">${content}</div>
+                    `;
+                    popupContainer.classList.add('active');
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                popupContainer.classList.remove('active');
+            });
+
+            popupContainer.addEventListener('click', (e) => {
+                if (e.target === popupContainer) {
+                    popupContainer.classList.remove('active');
+                }
+            });
+        }
+
+        // دالة تهيئة كل شيء عند تحميل الصفحة بالكامل
+        window.onload = function() {
+            setupNavbar();
+            setupCharts();
+            setupScrollAnimations();
+            setupCardAnimations();
+            setupCounters();
+            setupModal();
+        };
+
+        // نهاية كود JavaScript
+    </script>
+
+</body>
+</html>
